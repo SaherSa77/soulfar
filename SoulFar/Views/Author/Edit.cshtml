@@ -1,0 +1,70 @@
+﻿
+@model SoulFar.Models.Author
+@{
+    ViewBag.Title = "Edit Author Profile";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <h2 class="text-info">@Model.FirstName @Model.LastName</h2>
+            </div>
+        </div>
+        <hr />
+        <div class="col-md-12">
+            @using (Html.BeginForm("Edit", "Author", FormMethod.Post))
+            {
+                @Html.HiddenFor(x => x.AuthorID)
+
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        @Html.LabelFor(x => x.FirstName, new { @class = "form-label fs-4" })
+                        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control fs-4" })
+                        @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(x => x.LastName, new { @class = "form-label fs-4" })
+                        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control fs-4" })
+                        @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(x => x.Email, new { @class = "form-label fs-4" })
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control fs-4", Type = "email" })
+                        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(x => x.Phone, new { @class = "form-label fs-4" })
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control fs-4" })
+                        @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(x => x.Country, new { @class = "form-label fs-4" })
+                        @Html.TextBoxFor(x => x.Country, new { @class = "form-control fs-4" })
+                        @Html.ValidationMessageFor(x => x.Country, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(x => x.City, new { @class = "form-label fs-4" })
+                        @Html.TextBoxFor(x => x.City, new { @class = "form-control fs-4" })
+                        @Html.ValidationMessageFor(x => x.City, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(x => x.Address, new { @class = "form-label fs-4" })
+                        @Html.TextAreaFor(x => x.Address, new { @class = "form-control fs-4" })
+                        @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6" style="padding-top:50px;">
+                        <button type="submit" class="btn btn-success btn-lg col-12"><i class="fa-solid fa-up fs-4"></i> Update</button>
+                    </div>
+                </div>
+            }
+
+            <div class="col-md-12 d-flex justify-content-lg-start mt-3">
+                <a href="@Url.Action("Index", "Author")" class="btn btn-danger btn-sm fs-4"><i class="fa-regular fa-hand-back-point-left"></i> Back to the list</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

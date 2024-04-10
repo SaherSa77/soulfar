@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "SoulFar";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+  }
+
+<style>
+    .aa-browse-btn {
+        display: inline-block;
+        font-size: 16px;
+        padding: 12px 18px;
+        color: #a94442;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <form action="/Payment/CreateCheckoutSession" method="POST">
+            <input type="text" id="TextBox1" placeholder="amount" name="amount" /><br />
+            <button type="submit">Checkout</button>
+        </form>
+    </div>
+</div>
